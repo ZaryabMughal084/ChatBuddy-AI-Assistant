@@ -8,6 +8,11 @@ Conversational AI chatbot with memory using Groq API and Streamlit.
 - Temperature control
 - Clear chat history
 
+  ## Tech Stack
+- Python 3.12
+- Groq API (free tier)
+- Streamlit
+
 ## Setup
 1. Install: `pip install -r requirements.txt`
 2. Add GROQ_API_KEY to .env file
