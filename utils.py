@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from groq import Groq
+import groq
 
 load_dotenv()
 
@@ -8,7 +8,7 @@ api_key = os.getenv("GROQ_API_KEY")
 if not api_key:
     raise ValueError("GROQ_API_KEY not found")
 
-client = Groq()
+client = groq.Groq(api_key=api_key)
 
 def get_chat_response(messages, model="llama-3.3-70b-versatile", temperature=0.7):
     try:
