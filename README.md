@@ -2,7 +2,7 @@
 
 Conversational AI chatbot with memory using Groq API and Streamlit.
 
-**Live Demo:** [Try ChatBuddy here](https://chatbuddy-ai-assistant.streamlit.app)
+**Live Demo:** [Try ChatBuddy here](https://chatbuddy-ai-as-assistant.streamlit.app/)
 
 ## Features
 - Remembers conversation history
