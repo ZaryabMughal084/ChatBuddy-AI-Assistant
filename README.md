@@ -2,6 +2,8 @@
 
 Conversational AI chatbot with memory using Groq API and Streamlit.
 
+**Live Demo:** [Try ChatBuddy here](https://chatbuddy-ai-assistant.streamlit.app)
+
 ## Features
 - Remembers conversation history
 - Multiple LLM models (Llama 3.3, Llama 3.1, Gemma 2)
