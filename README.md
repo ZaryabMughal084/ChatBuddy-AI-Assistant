@@ -8,7 +8,7 @@ Conversational AI chatbot with memory using Groq API and Streamlit.
 - Temperature control
 - Clear chat history
 
-  ## Tech Stack
+## Tech Stack
 - Python 3.12
 - Groq API (free tier)
 - Streamlit
