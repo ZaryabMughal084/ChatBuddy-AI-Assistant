@@ -1,17 +1,13 @@
-# utils.py , Groq Version with CURRENT MODELS
 import os
 from dotenv import load_dotenv
 from groq import Groq
 
-# Load the environment variables from .env file
 load_dotenv()
 
-# Get the API key with error checking
 api_key = os.getenv("GROQ_API_KEY")
 if not api_key:
-    raise ValueError(" GROQ_API_KEY not found! ")
+    raise ValueError("GROQ_API_KEY not found")
 
-# Initialize the client
 client = Groq()
 
 def get_chat_response(messages, model="llama-3.3-70b-versatile", temperature=0.7):
