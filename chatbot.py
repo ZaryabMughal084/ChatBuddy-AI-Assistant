@@ -16,12 +16,11 @@ if "messages" not in st.session_state:
 # Sidebar controls
 with st.sidebar:
     st.header("⚙️ Settings")
-    
-    # Model selector
+
+    # Model selector (models available on Groq's free tier)
     model_options = {
-        "llama-3.3-70b-versatile": "🐫 Llama 3.3 (70B) - Best quality",
-        "llama-3.1-8b-instant": "⚡ Llama 3.1 (8B) - Fastest",
-        "gemma2-9b-it": "🎯 Gemma 2 (9B) - Good balance"
+        "openai/gpt-oss-20b": "⚡ GPT-OSS 20B - Fastest",
+        "openai/gpt-oss-120b": "🧠 GPT-OSS 120B - Best quality",
     }
     selected_model = st.selectbox(
         "Choose Model",
@@ -29,11 +28,11 @@ with st.sidebar:
         format_func=lambda x: model_options[x],
         index=0
     )
-    
+
     temperature = st.slider("Creativity (temperature)", 0.0, 1.0, 0.7, 0.1)
-    
+
     st.divider()
-    
+
     if st.button("🗑️ Clear Chat History"):
         st.session_state.messages = [add_system_prompt()]
         st.session_state.messages.append({
@@ -41,7 +40,7 @@ with st.sidebar:
             "content": "Chat cleared! How can I help you?"
         })
         st.rerun()
-    
+
     st.divider()
     st.caption("💡 Tip: Lower temperature = more focused answers")
     st.caption(f"Current model: **{selected_model}**")
@@ -58,16 +57,16 @@ if prompt := st.chat_input("Type your message here..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
-    
+
     # Getting AI response
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             response = get_chat_response(
-                st.session_state.messages, 
+                st.session_state.messages,
                 model=selected_model,  # Pass selected model
                 temperature=temperature
             )
             st.markdown(response)
-    
+
     # Add assistant response
     st.session_state.messages.append({"role": "assistant", "content": response})
